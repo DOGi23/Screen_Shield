@@ -58,4 +58,6 @@ The compiled binaries will be output to:
 
 ## 📄 License
 
-This project is licensed under the MIT License. Feel free to clone, modify, and distribute it as you see fit.
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+
+You are free to use, modify, and distribute this software, but any derivative works (forks) **must** remain open-source and be distributed under the same GPLv3 license. Commercializing closed-source forks is prohibited.
