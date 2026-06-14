@@ -1,0 +1,110 @@
+<Window x:Class="ScreenShield.DesktopOverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DesktopShieldOverlay"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="False"
+        ShowInTaskbar="False"
+        Loaded="Window_Loaded">
+    
+    <Window.Resources>
+        <!-- Drop Shadow Effect for Text to make it readable on any wallpaper -->
+        <DropShadowEffect x:Key="TextShadow" BlurRadius="4" Color="Black" ShadowDepth="1.5" Direction="315" Opacity="0.85"/>
+        
+        <!-- Style for Desktop Icon Items -->
+        <Style x:Key="DesktopItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Margin" Value="6,8,6,8"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="ItemBorder" 
+                                CornerRadius="5" 
+                                BorderThickness="1" 
+                                BorderBrush="Transparent" 
+                                Background="Transparent" 
+                                Padding="{TemplateBinding Padding}">
+                            
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                
+                                <!-- Icon Image -->
+                                <Image Source="{Binding Icon}" 
+                                       Width="42" 
+                                       Height="42" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,4,0,6">
+                                    <Image.Effect>
+                                        <DropShadowEffect BlurRadius="5" Color="Black" ShadowDepth="1" Direction="270" Opacity="0.3"/>
+                                    </Image.Effect>
+                                </Image>
+                                
+                                <!-- File Name Text -->
+                                <TextBlock Grid.Row="1" 
+                                           Text="{Binding Name}" 
+                                           TextWrapping="Wrap" 
+                                           TextAlignment="Center" 
+                                           Foreground="White" 
+                                           FontSize="11.5" 
+                                           FontFamily="Segoe UI, Outfit"
+                                           Effect="{StaticResource TextShadow}"
+                                           MaxHeight="40"
+                                           TextTrimming="CharacterEllipsis"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           LineStackingStrategy="BlockLineHeight"
+                                           LineHeight="14"/>
+                            </Grid>
+                        </Border>
+                        
+                        <ControlTemplate.Triggers>
+                            <!-- Hover state: Modern glass background -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ItemBorder" Property="Background" Value="#25FFFFFF"/>
+                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#40FFFFFF"/>
+                            </Trigger>
+                            <!-- Selected state: Solid tint and glowing border -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="ItemBorder" Property="Background" Value="#45FFFFFF"/>
+                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#80FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid x:Name="MainGrid">
+        <!-- List of Desktop Icons -->
+        <ListBox x:Name="IconsList" 
+                 Background="Transparent" 
+                 BorderThickness="0" 
+                 ItemContainerStyle="{StaticResource DesktopItemStyle}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 MouseDoubleClick="IconsList_MouseDoubleClick"
+                 SelectionMode="Single"
+                 Margin="15,20,15,20">
+            
+            <!-- ItemsPanel arranges items vertically in a wrap panel, just like native Windows! -->
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Window>
