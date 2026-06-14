@@ -1,0 +1,31 @@
+# Visual Studio & Build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE files
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.clw
+*.ncb
+*.aps
+
+# Project configurations (user settings)
+config.json
+screenshield_custom_bg.png
+screenshield_clean_bg.png
