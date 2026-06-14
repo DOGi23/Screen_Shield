@@ -11,7 +11,7 @@ ScreenShield is a lightweight, high-performance Windows utility designed to prev
 - **🖼️ Desktop & Wallpaper Guard**: Prevents background wallpaper and selected desktop shortcuts/icons from appearing on stream.
 - **⌨️ Global Hotkeys**: Toggle protection on the fly via `Ctrl + Shift + S`.
 - **🔊 Auditory Cues**: Provides instant stereo sound effects upon activation or deactivation of the protection, allowing you to know the state of protection while playing games or streaming in full-screen.
-- **🔔 Glassmorphic Notifications**: Beautiful, non-intrusive notification toasts using modern WPF styles.
+- **🔔 Notifications**: Beautiful, non-intrusive notification toasts.
 - **📂 Drag & Drop Wallpapers**: Easily drag and drop images directly into the panel to set your stream-safe background.
 - **🚀 Run at Startup**: Optional start-on-boot configuration to launch minimized directly to the Windows system tray.
 - **🔗 Taskbar Hiding (Optional)**: Hides protected app buttons from the Windows Taskbar (lower bar) for complete privacy.
