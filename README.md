@@ -1,8 +1,7 @@
-# ScreenShield (Free & Open-Source Edition)
+# ScreenShield
+[Russian Readme](https://github.com/DOGi23/Screen_Shield/blob/main/README.ru.md)
 
 ScreenShield is a lightweight, high-performance Windows utility designed to prevent desktop elements, specified application windows, and taskbar items from being captured by screen-sharing, recording, and streaming software (e.g., OBS, Discord, Zoom, etc.).
-
-This is the free, open-source edition of the software. It has all commercial licensing check constraints, online server verifications, assembly signing, and obfuscation requirements removed for ease of custom modification and deployment.
 
 ---
 
